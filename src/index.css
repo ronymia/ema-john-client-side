@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+/**-------------------------------/*
+          reset and common style  
+/*---------------------------------*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: rgba(255, 153, 0, 0.302);
+  --secondary-color: rgb(255, 153, 0);
+  --blue: rgb(28, 43, 53);
+  --dark-gray: rgb(20, 20, 20);
+  --light-gray: rgb(165, 166, 166);
+  --danger: rgb(255, 48, 48);
+  --light-danger: rgb(235, 87, 87);
+}
+
+.btn {
+  display: inline-block;
+  line-height: 1.6;
+  border: 0;
+  outline: 0;
+  padding: 1rem 3rem;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
