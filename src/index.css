@@ -13,7 +13,7 @@
 }
 
 :root {
-  --primary-color: rgba(255, 153, 0, 0.302);
+  --primary-color: #ffe0b3;
   --secondary-color: rgb(255, 153, 0);
   --blue: rgb(28, 43, 53);
   --dark-gray: rgb(20, 20, 20);
@@ -28,6 +28,7 @@
   border: 0;
   outline: 0;
   padding: 1rem 3rem;
+  cursor: pointer;
 }
 
 html {

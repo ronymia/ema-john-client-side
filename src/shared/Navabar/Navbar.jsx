@@ -8,11 +8,11 @@ export default function Navbar() {
             <nav>
                 <div className="logo">{logo}</div>
                 <ul className="menu">
-                    <a href="#">Home</a>
-                    <a href="#">Shop</a>
-                    <a href="#">Order Review</a>
-                    <a href="#">Inventory</a>
-                    <a href="#">Login</a>
+                    <a href="/home">Home</a>
+                    <a href="/shop">Shop</a>
+                    <a href="/orderReview">Order Review</a>
+                    <a href="/inventory">Inventory</a>
+                    <a href="/login">Login</a>
                 </ul>
             </nav>
         </header>
