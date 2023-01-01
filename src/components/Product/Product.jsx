@@ -2,7 +2,10 @@ import React from 'react';
 import './Product.css';
 
 export default function Product(props) {
-    const { img, name, price, seller, ratings } = props.product;
+    const { addToCat, product } = props;
+    const { img, name, price, seller, ratings } = product;
+    console.log(img);
+
     return (
         <article className="product">
             <figure>
@@ -14,7 +17,7 @@ export default function Product(props) {
                 <p className="product__manufacturer">Manufacturer : {seller}</p>
                 <p className="product__rating">Rating : {ratings} start</p>
             </div>
-            <button type="button" className="btn cart--btn">
+            <button type="button" onClick={() => addToCat(product)} className="btn cart--btn">
                 Add to cart
             </button>
         </article>

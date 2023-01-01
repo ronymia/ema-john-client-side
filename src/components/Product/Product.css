@@ -10,8 +10,9 @@
 
 .product figure .product__img {
   width: 100%;
-  border-radius: 0.7rem;
-  padding: 0.8rem;
+  height: 29rem;
+  padding: 0.7rem;
+  border-radius: 1.2rem;
 }
 
 .product .product__info {
