@@ -4,7 +4,6 @@ import './Product.css';
 export default function Product(props) {
     const { addToCat, product } = props;
     const { img, name, price, seller, ratings } = product;
-    console.log(img);
 
     return (
         <article className="product">

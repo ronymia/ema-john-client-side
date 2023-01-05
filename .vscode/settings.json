@@ -1,4 +1,7 @@
 {
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+
   //config related to code formatted
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
