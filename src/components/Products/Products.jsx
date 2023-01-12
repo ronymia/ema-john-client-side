@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { addToDb, getStoreCart } from '../../utilities/localStorage';
+
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Products.css';
 
 export default function Products() {
-    const [products, setProduct] = useState([]);
+    const products = useLoaderData();
     const [cart, setCart] = useState([]);
-
-    useEffect(() => {
-        fetch('products.json')
-            .then((res) => res.json())
-            .then((data) => setProduct(data));
-    }, []);
 
     const addToCat = (selectedProduct) => {
         let newCart = [];
@@ -53,7 +49,7 @@ export default function Products() {
     }, [products]);
 
     return (
-        <section className="shop-container">
+        <section className="product-container">
             <div className="shop-content">
                 {products.map((product) => (
                     <Product product={product} key={product.id} addToCat={addToCat} />

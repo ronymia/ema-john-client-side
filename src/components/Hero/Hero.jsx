@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import hero from '../../assets/images/hero.jpg';
 import './Hero.css';
 
@@ -12,7 +13,7 @@ export default function Home() {
                     <h2>Discover all the new arrivals of ready-to-wear collection.</h2>
                 </div>
                 <button type="button" className="btn hero__btn">
-                    SHOP NOW
+                    <Link to="/shop">SHOP NOW</Link>
                 </button>
             </div>
             <figure className="hero-img">

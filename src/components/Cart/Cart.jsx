@@ -6,8 +6,10 @@ export default function Cart({ cart }) {
 
     let total = 0;
     let shipping = 0;
+    let quantity = 0;
 
     cart.forEach((product) => {
+        quantity += product.quantity;
         total += product.price * product.quantity;
         shipping += product.shipping;
     });
@@ -18,7 +20,7 @@ export default function Cart({ cart }) {
     return (
         <div className="cart">
             <h1>Order Summary</h1>
-            <p>Selected Items: {cart.length}</p>
+            <p>Selected Items: {quantity}</p>
             <p>Total Price: ${total}</p>
             <p>Total Shipping Charge: ${shipping}</p>
             <p>Tax: ${text}</p>

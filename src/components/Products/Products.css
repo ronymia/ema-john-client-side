@@ -1,9 +1,9 @@
-.shop-container {
+.product-container {
   display: grid;
   grid-template-columns: 4fr 1fr;
 }
 
-.shop-container .shop-content {
+.product-container .shop-content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -11,6 +11,6 @@
   padding: 2.5rem 3.5rem;
 }
 
-.shop-container .cart-container {
+.product-container .cart-container {
   background-color: var(--primary-color);
 }
