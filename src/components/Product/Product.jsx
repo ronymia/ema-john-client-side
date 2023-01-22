@@ -1,8 +1,7 @@
 import React from 'react';
 import './Product.css';
 
-export default function Product(props) {
-    const { addToCat, product } = props;
+export default function Product({ addToCat, product }) {
     const { img, name, price, seller, ratings } = product;
 
     return (

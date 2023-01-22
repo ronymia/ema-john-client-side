@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import Cart from '../components/Cart/Cart';
-import ReviewItems from '../components/ReviewItems/ReviewItems';
-import { removeFromDb } from '../utilities/localStorage';
+import Cart from '../../components/Cart/Cart';
+import ReviewItems from '../../components/ReviewItems/ReviewItems';
+import { removeFromDb } from '../../utilities/localStorage';
 
 function Orders() {
     const { initialCart } = useLoaderData();
@@ -15,7 +15,7 @@ function Orders() {
     };
 
     return (
-        <section className="product-container">
+        <section className="shop-container">
             <div className="">
                 {cart.map((product) => (
                     <ReviewItems

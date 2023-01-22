@@ -2,7 +2,7 @@
   width: 30rem;
   height: 50rem;
   border: 1px solid #95a0a7;
-  border-radius: 0.5rem;
+  border-radius: 0.8rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -20,7 +20,11 @@
 }
 
 .product .product__info .product__name {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
   font-size: 2rem;
+  line-height: 2.5rem;
 }
 
 .product .product__info .product__price {
@@ -33,6 +37,7 @@
 .product .product__info .product__rating {
   font-size: 1.2rem;
 }
+
 .product .product__info .product__rating {
   margin-top: 1rem;
   margin-bottom: 0.8rem;
@@ -50,5 +55,5 @@
 }
 
 .cart--btn:hover {
-  background-color: var(--secondary-color);
+  background-color: rgba(255, 153, 0, 0.6);
 }

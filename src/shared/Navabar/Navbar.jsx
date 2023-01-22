@@ -5,11 +5,11 @@ import './Navbar.css';
 
 export default function Navbar() {
     return (
-        <header className="nav-header">
+        <header className="header">
+            <div className="logo">
+                <img src={logo} alt="" />
+            </div>
             <nav>
-                <div className="logo">
-                    <img src={logo} alt="" />
-                </div>
                 <ul className="menu">
                     <Link to="/">Home</Link>
                     <Link to="/shop">Shop</Link>

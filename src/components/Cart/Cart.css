@@ -1,7 +1,8 @@
-.cart {
+.cart-container .cart {
   position: sticky;
   top: 5rem;
   padding: 1.8rem;
+  height: 100%;
 }
 
 .cart h1 {
