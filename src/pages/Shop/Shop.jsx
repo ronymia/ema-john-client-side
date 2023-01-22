@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { addToDb, getStoreCart } from '../../utilities/localStorage';
+import { Link, useLoaderData } from 'react-router-dom';
+import { addToDb, deleteShoppingCart, getStoreCart } from '../../utilities/localStorage';
 
 import Cart from '../../components/Cart/Cart';
 import Product from '../../components/Product/Product';
 import './Shop.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export default function Shop() {
     const products = useLoaderData();
     const [cart, setCart] = useState([]);
+
+    const clearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
+    }
 
     useEffect(() => {
         const localCart = getStoreCart();
@@ -56,7 +63,12 @@ export default function Shop() {
                 ))}
             </div>
             <aside className="cart-container">
-                <Cart cart={cart} />
+                <Cart cart={cart} clearCart={clearCart}>
+                    <Link to="/orders" className="btn review-btn">
+                        Review Order
+                        <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
+                    </Link>
+                </Cart>
             </aside>
         </section>
     );

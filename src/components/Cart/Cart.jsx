@@ -1,7 +1,9 @@
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import './Cart.css';
 
-export default function Cart({ cart }) {
+export default function Cart({ cart, clearCart, children }) {
     // console.log(cart);
 
     let total = 0;
@@ -25,6 +27,12 @@ export default function Cart({ cart }) {
             <p>Total Shipping Charge: ${shipping}</p>
             <p>Tax: ${text}</p>
             <h2>Grand Total: ${grandTotal}</h2>
+            <button type="button"
+                className="btn clear-btn"
+                onClick={clearCart}>
+                Clear Cart
+                <FontAwesomeIcon className="cart__clear-icon" icon={faTrashAlt} /></button>
+            {children}
         </div>
     );
 }

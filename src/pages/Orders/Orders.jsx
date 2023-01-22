@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Cart from '../../components/Cart/Cart';
 import ReviewItems from '../../components/ReviewItems/ReviewItems';
-import { removeFromDb } from '../../utilities/localStorage';
+import { deleteShoppingCart, removeFromDb } from '../../utilities/localStorage';
 
 function Orders() {
     const { initialCart } = useLoaderData();
     const [cart, setCart] = useState(initialCart);
+
+    const clearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
+    }
 
     const handleRemoveItem = (productId) => {
         const rest = cart.filter((product) => product.id !== productId);
@@ -26,7 +31,7 @@ function Orders() {
                 ))}
             </div>
             <aside className="cart-container">
-                <Cart cart={cart} />
+                <Cart cart={cart} clearCart={clearCart} />
             </aside>
         </section>
     );
