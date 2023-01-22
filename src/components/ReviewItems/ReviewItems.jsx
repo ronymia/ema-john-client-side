@@ -14,19 +14,14 @@ function ReviewItems({ product, handleRemoveItem }) {
             <div className="reviewItem">
                 <div className="reviewItem-details">
                     <p className="item__name">{name}</p>
-                    <p className="item__price">
-                        Price : <span className="orange-color">${price}</span>
-                    </p>
-                    <p>
-                        Shipping Charge : <span className="orange-color">${shipping}</span>
-                    </p>
+                    <p className="item__price">Price : <span className="orange-color">${price}</span></p>
+                    <p>Shipping Charge : <span className="orange-color">${shipping}</span></p>
                     <p>
                         Quantity : <span className="orange-color">{quantity}</span>
                     </p>
                 </div>
                 <div className="reviewItem__delete-content">
-                    <button
-                        type="button"
+                    <button type="button"
                         onClick={() => handleRemoveItem(id)}
                         className="reviewItem__delete-btn"
                     >

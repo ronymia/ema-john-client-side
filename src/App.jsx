@@ -2,8 +2,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './layouts/Main';
 import { productAndCartLoader } from './loders/productAndCartLoader';
 import Home from './pages/Home';
+import Login from './pages/Login/Login';
 import Orders from './pages/Orders/Orders';
 import Shop from './pages/Shop/Shop';
+import SignUp from './pages/SignUp/SignUp';
 
 export default function App() {
     const router = createBrowserRouter([
@@ -24,6 +26,14 @@ export default function App() {
                     path: '/orders',
                     loader: productAndCartLoader,
                     element: <Orders />,
+                },
+                {
+                    path: '/login',
+                    element: <Login />,
+                },
+                {
+                    path: '/signUp',
+                    element: <SignUp />,
                 },
             ],
         },

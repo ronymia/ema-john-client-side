@@ -16,6 +16,7 @@ export default function Navbar() {
                     <Link to="/orders">Orders</Link>
                     <Link to="/inventory">Inventory</Link>
                     <Link to="/login">Login</Link>
+                    <Link to="/signUp">Sign Up</Link>
                 </ul>
             </nav>
         </header>

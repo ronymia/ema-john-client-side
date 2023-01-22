@@ -1,24 +1,25 @@
 .reviewItem-container {
     display: flex;
-    gap: 10px;
+    /* gap: 10px; */
     justify-content: center;
     width: 57rem;
-    margin: 20px auto;
-    padding: 10px;
+    margin: 2rem auto;
+    padding: 0.8rem;
     border: 1px solid #95A0A7;
     border-radius: 0.8rem;
 }
 
 .reviewItem-container figure img {
     width: 9rem;
-    border-radius: 0.8rem;
+    border-radius: 0.6rem;
 }
 
 .reviewItem-container .reviewItem {
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    margin-left: 1.5rem;
 }
 
 .orange-color {
@@ -27,14 +28,14 @@
 }
 
 .reviewItem-container .reviewItem .reviewItem-details p {
-    margin: 0.3rem 0;
+    margin: 0;
     color: #1C2B35;
     font-size: 1.4rem;
 }
 
 .reviewItem-container .reviewItem .reviewItem-details .item__name {
     font-family: 'Lato';
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 600;
 }
 
