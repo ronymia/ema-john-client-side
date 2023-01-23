@@ -1,29 +1,102 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './SignUp.css';
 
 function SignUp() {
+    const [email, setEmail] = useState({
+        value: '',
+        error: ''
+    });
+    const [password, setPassword] = useState({
+        value: '',
+        error: ''
+    });
+    const [confirmPassword, setConfirmPassword] = useState({
+        value: '',
+        error: ''
+    });
+
+
+    const emailHandler = (event) => {
+        const email = event.target.value;
+        setEmail({ value: email });
+
+        if (!(/^\S+@\S+\.\S+$/).test(email)) {
+            const errorMessage = 'please provide a valid email';
+            setEmail({ ...email, error: errorMessage });
+        }
+    }
+
+    const passwordHandler = (event) => {
+        const password = event.target.value;
+        setPassword({ value: password });
+
+        if (password < 6) {
+            setPassword({ error: 'Password must be 6 character' })
+        }
+    }
+    const confirmPasswordHandler = (event) => {
+        const confirmPassword = event.target.value;
+        setConfirmPassword({ value: confirmPassword });
+
+        if (password.value !== confirmPassword) {
+            setConfirmPassword({ ...confirmPassword, error: "Password did not match" })
+        }
+    }
+
+    const SignUpSubmit = (event) => {
+        event.preventDefault();
+
+        const errorMessage = 'this field is required';
+
+        if (!email.value || !password.value || !confirmPassword.value) {
+            setEmail({ error: errorMessage });
+            setPassword({ ...password, error: errorMessage });
+            setConfirmPassword({ ...confirmPassword, error: errorMessage });
+        } else {
+            setEmail({ error: "" });
+            setPassword({ ...password, error: '' });
+            setConfirmPassword({ ...confirmPassword, error: '' });
+        }
+
+
+    }
+
     return (
         <div className="form-container">
             <h2 className="form-title">Sign Up</h2>
-            <form>
+            <form onSubmit={SignUpSubmit}>
                 <div className="form-control">
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" required />
+                    <input type="email"
+                        className={`${email.error ? "error-border" : ''}`}
+                        onBlur={emailHandler}
+                        name="email"
+                    />
+                    <p className="input-error">{email?.error}</p>
                 </div>
                 <div className="form-control">
                     <label htmlFor="password">Password</label>
-                    <input type="password" name="password" required />
+                    <input type="password"
+                        className={`${email.error ? "error-border" : ''}`}
+                        onBlur={passwordHandler}
+                        name="password"
+                    />
+                    {password.error && <p className="input-error">{password.error}</p>}
                 </div>
                 <div className="form-control">
-                    <label htmlFor="confirm">Confirm Password</label>
-                    <input type="password" name="confirm" required />
+                    <label htmlFor="confirmPassword">Confirm Password</label>
+                    <input type="password"
+                        className={`${email.error ? "error-border" : ''}`}
+                        onBlur={confirmPasswordHandler}
+                        name="confirmPassword"
+                    />
+                    {confirmPassword.error && <p className="input-error">{confirmPassword.error}</p>}
                 </div>
                 <input className="btn-submit" type="submit" value="Sign Up" />
             </form>
-            <p>
-                Already Have an Account <Link to="/login">Login</Link>
-            </p>
-            <p className="text-error">k</p>
+            <p className="togol-login">Already Have an Account? <Link to="/login" className="togol-link">Login</Link></p>
         </div>
     );
 }
