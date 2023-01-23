@@ -1,9 +1,11 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContxt } from '../../contexts/UserContext';
 import './SignUp.css';
 
 function SignUp() {
+    const { user } = useContext(AuthContxt);
+
     const [email, setEmail] = useState({
         value: '',
         error: ''
