@@ -17,8 +17,8 @@ function Login() {
                 </div>
                 <input className="btn-submit" type="submit" value="Login" />
             </form>
-            <p>
-                New to ema john <Link to="/signup">Create a New Account</Link>
+            <p className="togol-register">
+                New to Ema-john? <Link to="/signup" className="togol-link">Create a New Account</Link>
             </p>
         </div>
     );

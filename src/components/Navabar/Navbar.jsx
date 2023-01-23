@@ -22,6 +22,7 @@ export default function Navbar() {
                     <Link to="/inventory">Inventory</Link>
                     <Link to="/login">Login</Link>
                     <Link to="/signUp">Sign Up</Link>
+                    <h3>{user?.email}</h3>
                 </ul>
             </nav>
         </header>

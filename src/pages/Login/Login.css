@@ -1,0 +1,17 @@
+.form-container .togol-register {
+    font-size: 1.4rem;
+    color: #2A414F;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 0.8rem;
+    line-height: 18px;
+}
+
+.form-container .togol-register .togol-link {
+    color: #FF9900;
+    margin-left: 0.5rem;
+}
+
+.form-container .togol-register .togol-link:hover {
+    text-decoration: underline;
+}
