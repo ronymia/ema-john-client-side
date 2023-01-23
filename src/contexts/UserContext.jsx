@@ -6,7 +6,9 @@ export const AuthContxt = createContext();
 const UserContext = ({ children }) => {
     const [user, setUser] = useState(null);
 
-    const authInfo = { name: "Rony" }
+    // const createUser = (email, password) =>
+
+    const authInfo = { user }
 
     return (
         <AuthContxt.Provider value={authInfo}>
