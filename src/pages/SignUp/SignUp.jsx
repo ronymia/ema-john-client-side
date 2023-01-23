@@ -38,6 +38,7 @@ function SignUp() {
             setPassword({ error: 'Password must be 6 character' })
         }
     }
+
     const confirmPasswordHandler = (event) => {
         const confirmPassword = event.target.value;
         setConfirmPassword({ value: confirmPassword });
@@ -57,7 +58,7 @@ function SignUp() {
             setPassword({ ...password, error: errorMessage });
             setConfirmPassword({ ...confirmPassword, error: errorMessage });
         } else {
-            setEmail({ error: "" });
+            setEmail({ ...email, error: "" });
             setPassword({ ...password, error: '' });
             setConfirmPassword({ ...confirmPassword, error: '' });
         }
@@ -87,7 +88,7 @@ function SignUp() {
                         onBlur={emailHandler}
                         name="email"
                     />
-                    <p className="input-error">{email?.error}</p>
+                    {email.error && <p className="input-error">{email?.error}</p>}
                 </div>
                 <div className="form-control">
                     <label htmlFor="password">Password</label>
