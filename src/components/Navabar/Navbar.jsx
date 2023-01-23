@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/Logo.svg';
+import { AuthContxt } from '../../contexts/UserContext';
 import './Navbar.css';
 
 export default function Navbar() {
+    const { user } = useContext(AuthContxt);
+
+    console.log(user)
+
     return (
         <header className="header">
             <div className="logo">
