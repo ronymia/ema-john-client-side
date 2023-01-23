@@ -5,9 +5,14 @@ import { AuthContxt } from '../../contexts/UserContext';
 import './Navbar.css';
 
 export default function Navbar() {
-    const { user } = useContext(AuthContxt);
+    const { user, logOut } = useContext(AuthContxt);
 
     console.log(user)
+    const userLogOUt = () => {
+        logOut()
+            .then(result => console.log("object"))
+            .catch(error => console.error(error));
+    }
 
     return (
         <header className="header">
@@ -20,9 +25,18 @@ export default function Navbar() {
                     <Link to="/shop">Shop</Link>
                     <Link to="/orders">Orders</Link>
                     <Link to="/inventory">Inventory</Link>
-                    <Link to="/login">Login</Link>
-                    <Link to="/signUp">Sign Up</Link>
-                    <h3>{user?.email}</h3>
+                    {
+                        user ?
+                            <button type="button" className="btn"
+                                onClick={userLogOUt}
+                            >
+                                Log Out</button>
+                            :
+                            <>
+                                <Link to="/login">Login</Link>
+                                <Link to="/signUp">Sign Up</Link>
+                            </>
+                    }
                 </ul>
             </nav>
         </header>
