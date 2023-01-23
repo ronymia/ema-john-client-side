@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContxt } from '../../contexts/UserContext';
 import './Login.css';
 
 function Login() {
+    const { existUserLogin, setUser } = useContext(AuthContxt);
+
     const [email, setEmail] = useState({
         value: '',
         error: ''
@@ -14,7 +17,6 @@ function Login() {
 
     const emailHandler = (event) => {
         const email = event.target.value;
-        console.log(email)
         setEmail({ value: email });
 
         if (!(/^\S+@\S+\.\S+$/).test(email)) {
@@ -25,7 +27,6 @@ function Login() {
 
     const passwordHandler = (event) => {
         const password = event.target.value;
-        console.log(password)
         setPassword({ value: password });
 
         if (password < 6) {
@@ -46,6 +47,18 @@ function Login() {
             setEmail({ error: "" });
             setPassword({ ...password, error: '' });
         }
+
+        //user login 
+        const userEmail = email.value;
+        const userPassword = password.value;
+
+        existUserLogin(userEmail, userPassword)
+            .then(result => {
+                const user = result.user;
+                setUser(user);
+            })
+            .catch(error => console.error(error.message));
+
     }
 
     return (

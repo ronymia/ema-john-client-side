@@ -73,7 +73,7 @@ function SignUp() {
                 const user = result.user;
                 setUser(user)
             })
-            .catch(error => console.error(error.message))
+            .catch(error => console.error(error.message));
 
     }
 
