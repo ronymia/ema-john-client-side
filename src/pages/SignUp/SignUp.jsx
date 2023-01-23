@@ -4,7 +4,7 @@ import { AuthContxt } from '../../contexts/UserContext';
 import './SignUp.css';
 
 function SignUp() {
-    const { user } = useContext(AuthContxt);
+    const { createUser, setUser } = useContext(AuthContxt);
 
     const [email, setEmail] = useState({
         value: '',
@@ -62,6 +62,17 @@ function SignUp() {
             setConfirmPassword({ ...confirmPassword, error: '' });
         }
 
+
+        // createingt new user
+        const userEmail = email.value;
+        const userPassword = password.value;
+
+        createUser(userEmail, userPassword)
+            .then(result => {
+                const user = result.user;
+                setUser(user)
+            })
+            .catch(error => console.error(error.message))
 
     }
 
