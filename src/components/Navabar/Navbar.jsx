@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../../assets/images/Logo.svg';
 import { AuthContxt } from '../../contexts/UserContext';
 import './Navbar.css';
@@ -21,20 +21,40 @@ export default function Navbar() {
             </div>
             <nav>
                 <ul className="menu">
-                    <Link to="/">Home</Link>
-                    <Link to="/shop">Shop</Link>
-                    <Link to="/orders">Orders</Link>
-                    <Link to="/inventory">Inventory</Link>
+                    <NavLink to="/"
+                        className={({ isActive }) => isActive ? "active-route" : undefined}
+                    >
+                        Home
+                    </NavLink>
+                    <NavLink to="/shop"
+                        className={({ isActive }) => isActive ? "active-route" : undefined}
+                    >
+                        Shop
+                    </NavLink>
+                    <NavLink to="/orders"
+                        className={({ isActive }) => isActive ? "active-route" : undefined}
+                    >
+                        Orders
+                    </NavLink>
+                    <NavLink to="/inventory"
+                        className={({ isActive }) => isActive ? "active-route" : undefined}
+                    >
+                        Inventory
+                    </NavLink>
                     {
                         user ?
-                            <button type="button" className="btn"
+                            <button type="button" className="btn logOut-btn"
                                 onClick={userLogOUt}
                             >
                                 Log Out</button>
                             :
                             <>
-                                <Link to="/login">Login</Link>
-                                <Link to="/signUp">Sign Up</Link>
+                                <NavLink to="/login"
+                                    className={({ isActive }) => isActive ? "active-route" : undefined}
+                                >
+                                    Login
+                                </NavLink>
+                                <NavLink to="/signUp">Sign Up</NavLink>
                             </>
                     }
                 </ul>

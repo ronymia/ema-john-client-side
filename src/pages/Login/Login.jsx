@@ -56,6 +56,7 @@ function Login() {
             .then(result => {
                 const user = result.user;
                 setUser(user);
+                event.target.reset();
             })
             .catch(error => console.error(error.message));
 

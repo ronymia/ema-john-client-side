@@ -33,3 +33,14 @@
 .header nav .menu a:hover {
   color: var(--secondary-color);
 }
+
+.menu .logOut-btn {
+  background-color: rgb(223, 164, 54);
+  padding: 0.5rem 1.5rem;
+  color: var(--blue);
+  font-weight: 600;
+}
+
+.header nav .menu .active-route {
+  color: var(--secondary-color);
+}
