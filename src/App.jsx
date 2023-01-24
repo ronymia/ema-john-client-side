@@ -33,7 +33,9 @@ export default function App() {
                 },
                 {
                     path: '/shipping',
-                    element: <Shipping />,
+                    element: <PrivateRoute>
+                        <Shipping />
+                    </PrivateRoute>,
                 },
                 {
                     path: '/login',
