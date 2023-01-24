@@ -31,6 +31,7 @@
   font-size: 1.7rem;
   border-radius: 0.4rem;
   margin-top: 5rem;
+  border: 0;
 }
 
 .cart .cart__clear-icon {

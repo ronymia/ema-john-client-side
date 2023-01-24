@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 import { AuthContxt } from '../../contexts/UserContext';
 import './SignUp.css';
 
@@ -117,6 +118,8 @@ function SignUp() {
                 <input className="btn-submit" type="submit" value="Sign Up" />
             </form>
             <p className="togol-login">Already Have an Account? <Link to="/login" className="togol-link">Login</Link></p>
+
+            <SocialLogin />
         </div>
     );
 }

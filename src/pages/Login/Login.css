@@ -1,4 +1,14 @@
-.form-container .togol-register {
+.form-container-login {
+    width: 500px;
+    height: 570px;
+    margin: 20px auto;
+    border: 1px solid #95A0A7;
+    border-radius: 8px;
+    padding-left: 40px;
+    box-shadow: -8px 8px 2px #FFE0B3;
+}
+
+.togol-register {
     font-size: 1.4rem;
     color: #2A414F;
     text-align: center;
@@ -7,11 +17,37 @@
     line-height: 18px;
 }
 
-.form-container .togol-register .togol-link {
+.togol-register .togol-link {
     color: #FF9900;
     margin-left: 0.5rem;
 }
 
-.form-container .togol-register .togol-link:hover {
+.togol-register .togol-link:hover {
     text-decoration: underline;
+}
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    color: #95A0A7;
+    font-size: 1.7rem;
+    margin-top: 2rem;
+}
+
+.login-divider .first-divider,
+.login-divider .third-divider {
+    width: 145px;
+}
+
+.google-btn {
+    font-size: 1.7rem;
+    color: #2A414F;
+    margin-top: 3rem;
+    width: 415px;
+    height: 55px;
+    border: 1px solid #95A0A7;
+    border-radius: 5px;
+    background-color: #ffffff;
 }

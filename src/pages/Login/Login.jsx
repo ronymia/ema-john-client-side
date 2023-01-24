@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 import { AuthContxt } from '../../contexts/UserContext';
 import './Login.css';
 
@@ -66,8 +67,9 @@ function Login() {
 
     }
 
+
     return (
-        <div className="form-container">
+        <div className="form-container-login ">
             <h2 className="form-title">Login</h2>
             <form onSubmit={userLoginHandler}>
                 <div className="form-control">
@@ -91,6 +93,8 @@ function Login() {
             <p className="togol-register">
                 New to Ema-john? <Link to="/signup" className="togol-link">Create a New Account</Link>
             </p>
+
+            <SocialLogin />
         </div>
     );
 }
