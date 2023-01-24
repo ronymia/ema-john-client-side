@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContxt } from '../../contexts/UserContext';
 import './SignUp.css';
 
 function SignUp() {
+    const navigate = useNavigate();
+    const location = useLocation();
     const { createUser, setUser } = useContext(AuthContxt);
 
     const [email, setEmail] = useState({
@@ -18,6 +20,8 @@ function SignUp() {
         value: '',
         error: ''
     });
+
+    const from = location.state?.from?.pathname || "/";
 
 
     const emailHandler = (event) => {
@@ -71,8 +75,9 @@ function SignUp() {
         createUser(userEmail, userPassword)
             .then(result => {
                 const user = result.user;
-                setUser(user)
+                setUser(user);
                 event.target.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error.message));
 

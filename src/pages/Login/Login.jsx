@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContxt } from '../../contexts/UserContext';
 import './Login.css';
 
 function Login() {
     const { existUserLogin, setUser } = useContext(AuthContxt);
-
+    const navigate = useNavigate();
+    const location = useLocation();
     const [email, setEmail] = useState({
         value: '',
         error: ''
@@ -14,6 +15,8 @@ function Login() {
         value: '',
         error: ''
     });
+
+    const from = location.state?.from?.pathname || "/";
 
     const emailHandler = (event) => {
         const email = event.target.value;
@@ -57,6 +60,7 @@ function Login() {
                 const user = result.user;
                 setUser(user);
                 event.target.reset();
+                navigate(from, { replace: true });
             })
             .catch(error => console.error(error.message));
 
