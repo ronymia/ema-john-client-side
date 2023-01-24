@@ -6,6 +6,7 @@ import Login from './pages/Login/Login';
 import Orders from './pages/Orders/Orders';
 import Shop from './pages/Shop/Shop';
 import SignUp from './pages/SignUp/SignUp';
+import PrivateRoute from './routes/PrivateRoute';
 
 export default function App() {
     const router = createBrowserRouter([
@@ -25,7 +26,9 @@ export default function App() {
                 {
                     path: '/orders',
                     loader: productAndCartLoader,
-                    element: <Orders />,
+                    element: <PrivateRoute>
+                        <Orders />
+                    </PrivateRoute>,
                 },
                 {
                     path: '/login',
