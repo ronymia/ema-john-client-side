@@ -54,7 +54,6 @@ export default function Navbar() {
                                 >
                                     Login
                                 </NavLink>
-                                <NavLink to="/signUp">Sign Up</NavLink>
                             </>
                     }
                 </ul>
