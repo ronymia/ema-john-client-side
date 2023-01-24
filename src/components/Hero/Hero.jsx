@@ -17,7 +17,7 @@ export default function Home() {
                 </button>
             </div>
             <figure className="hero-img">
-                <img width={100} src={hero} alt="" />
+                <img src={hero} alt="" />
             </figure>
         </div>
     );
