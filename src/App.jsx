@@ -4,6 +4,7 @@ import { productAndCartLoader } from './loders/productAndCartLoader';
 import Home from './pages/Home';
 import Login from './pages/Login/Login';
 import Orders from './pages/Orders/Orders';
+import Shipping from './pages/Shipping/Shipping';
 import Shop from './pages/Shop/Shop';
 import SignUp from './pages/SignUp/SignUp';
 import PrivateRoute from './routes/PrivateRoute';
@@ -29,6 +30,10 @@ export default function App() {
                     element: <PrivateRoute>
                         <Orders />
                     </PrivateRoute>,
+                },
+                {
+                    path: '/shipping',
+                    element: <Shipping />,
                 },
                 {
                     path: '/login',
