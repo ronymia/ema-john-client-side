@@ -1,13 +1,8 @@
-/* eslint-disable no-unreachable-loop */
-/* eslint-disable guard-for-in */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable consistent-return */
 import { getStoreCart } from '../utilities/localStorage';
 
-/* eslint-disable import/prefer-default-export */
 export const productAndCartLoader = async () => {
     // get cart
-    const productsData = await fetch('products.json');
+    const productsData = await fetch('http://localhost:5000/products');
     const products = await productsData.json();
 
     // get local cart
@@ -15,7 +10,7 @@ export const productAndCartLoader = async () => {
     const initialCart = [];
 
     for (const id in savedCart) {
-        const storedProduct = products.find((product) => product.id === id);
+        const storedProduct = products.find((product) => product._id === id);
 
         if (storedProduct) {
             const quantity = savedCart[id];
