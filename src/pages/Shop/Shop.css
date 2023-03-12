@@ -32,3 +32,29 @@
   font-weight: 600;
   margin-left: 0.7rem;
 }
+
+.pagination {
+  display: block;
+  margin-top: 50px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.pagination p {
+  font-size: 18px;
+  margin: 16px;
+}
+
+.pagination button {
+  border: 0;
+  background-color: var(--primary-color);
+}
+
+.pagination button:hover {
+  border: 0;
+  background-color: var(--secondary-color);
+}
+
+.pagination .selected {
+  background-color: var(--secondary-color);
+}

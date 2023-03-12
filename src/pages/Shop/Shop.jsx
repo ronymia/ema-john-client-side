@@ -8,14 +8,35 @@ import './Shop.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
+/**
+ * count
+ * per page
+ * page 
+*/
+
 export default function Shop() {
-    const products = useLoaderData();
+    // const { products, count } = useLoaderData();
+    const [products, setProducts] = useState([]);
+    const [count, setCount] = useState(0);
     const [cart, setCart] = useState([]);
+    const [page, setPage] = useState(0);
+    const [size, setSize] = useState(10);
+
+    const pages = Math.ceil(count / size);
 
     const clearCart = () => {
         setCart([]);
         deleteShoppingCart();
     }
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/products?page=${page}&size=${size}`)
+            .then(res => res.json())
+            .then(data => {
+                setCount(data.count);
+                setProducts(data.products);
+            })
+    }, [page, size]);
 
     useEffect(() => {
         const localCart = getStoreCart();
@@ -70,6 +91,28 @@ export default function Shop() {
                     </Link>
                 </Cart>
             </aside>
+            <div className="pagination">
+                <p>Currently selected page : {page} and Size : {size}</p>
+                {
+                    [...Array(pages).keys()].map(number => <button
+                        key={number}
+                        className={`${page === number && "selected"} btn`}
+                        onClick={() => setPage(number)}
+                    >
+                        {number}
+                    </button>
+                    )
+                }
+                <select
+                    className='btn'
+                    onChange={event => setSize(event.target.value)}
+                >
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
         </section>
     );
 }

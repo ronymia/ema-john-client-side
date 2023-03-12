@@ -3,7 +3,7 @@ import { getStoreCart } from '../utilities/localStorage';
 export const productAndCartLoader = async () => {
     // get cart
     const productsData = await fetch('http://localhost:5000/products');
-    const products = await productsData.json();
+    const { products } = await productsData.json();
 
     // get local cart
     const savedCart = getStoreCart();
