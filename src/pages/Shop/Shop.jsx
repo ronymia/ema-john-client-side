@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { addToDb, deleteShoppingCart, getStoreCart } from '../../utilities/localStorage';
 
 import Cart from '../../components/Cart/Cart';
@@ -8,11 +8,7 @@ import './Shop.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-/**
- * count
- * per page
- * page 
-*/
+
 
 export default function Shop() {
     // const { products, count } = useLoaderData();
