@@ -42,18 +42,32 @@ export default function Shop() {
         const localCart = getStoreCart();
         const savedCart = [];
 
-        for (const id in localCart) {
-            const storedProduct = products.find((product) => product._id === id);
+        const ids = Object.keys(localCart);
 
-            if (storedProduct) {
-                const quantity = localCart[id];
-                storedProduct.quantity = quantity;
-                savedCart.push(storedProduct);
-            }
-        }
+        fetch('http://localhost:5000/productsByIds', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(ids)
+        })
+            .then(res => res.json())
+            .then(data => {
+                for (const id in localCart) {
+                    const storedProduct = data.find((product) => product._id === id);
 
-        // set local storage product to cart
-        setCart(savedCart);
+                    if (storedProduct) {
+                        const quantity = localCart[id];
+                        storedProduct.quantity = quantity;
+                        savedCart.push(storedProduct);
+                    }
+                }
+
+                // set local storage product to cart
+                setCart(savedCart);
+            })
+
+
     }, [products]);
 
     const addToCat = (selectedProduct) => {
@@ -104,11 +118,12 @@ export default function Shop() {
                     )
                 }
                 <select
+                    defaultValue={10}
                     className='btn'
                     onChange={event => setSize(event.target.value)}
                 >
                     <option value="5">5</option>
-                    <option value="10" selected>10</option>
+                    <option value="10">10</option>
                     <option value="15">15</option>
                     <option value="20">20</option>
                 </select>
